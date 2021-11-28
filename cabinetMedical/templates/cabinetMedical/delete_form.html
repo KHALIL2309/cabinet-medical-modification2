@@ -1,0 +1,14 @@
+{% extends 'cabinetMedical/projeet.html' %} 
+{% load static %}
+
+
+{% block content %}
+
+         <form action="{% url 'delete' order.id %}" method="POST">
+             {% csrf_token %}
+             <a href="home">retour</a>
+             {{form}}
+             <button type="submit" class="btn btn-primary mb-3"> supprime </button>
+         </form>
+
+{% endblock  %}

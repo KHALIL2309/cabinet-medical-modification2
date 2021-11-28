@@ -4,8 +4,68 @@
 
 {% block content %}
 
-      <h1>home</h1>
+      <h1 class="p-3">les book</h1> 
 
+
+
+      <form class="d-flex" method="GET" >
+        {{searchFilter.form}}
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+
+
+      <div class="container">
+        <div class="row" style="color: #08520e; font-size: 22px;">
+          <div class="col">
+            Name client:{{client.name}}
+          </div>
+          <div class="col"   >
+            Email:{{client.email}}
+          </div>
+          <div class="col">
+            Age :{{client.age}}
+          </div>
+          <div class="col">
+            Tele :{{client.tele}}
+          </div>
+          <div class="col">
+            number d'order:{{num_order}}
+          </div>
+        </div>
+      </div>
+
+
+
+
+    <div class="container">
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">book</th>
+            <th scope="col">statu</th>
+            <th scope="col">categorei</th>
+            <th scope="col">la Date</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in orders %}
+           <tr>
+              <td>{{item.books}}</td>
+              <td>{{item.books.statu}}</td>
+              <td>{{item.status}}</td>
+              <td>{{item.date_created}}</td>
+              <td>
+              <a href="#"><i class="fas fa-edit"></i></a>
+              <a href="#"><i style="color: #ff0000;" class="fas fa-trash-alt"></i></a>
+              </td>
+            </tr>
+          {% endfor  %}
+          
+        </tbody>
+      </table>
+    </div>
 {% endblock  %}
 
 

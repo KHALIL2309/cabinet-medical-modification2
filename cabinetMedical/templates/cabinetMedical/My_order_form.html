@@ -1,0 +1,18 @@
+
+{% extends 'cabinetMedical/projeet.html' %} 
+{% load static %}
+
+
+{% block content %}
+      <h1>projet3</h1>
+
+         <form action="" method="POST">
+             {% csrf_token %}
+             {{form}}
+             <button type="submit" class="btn btn-primary mb-3">submit</button>
+
+         </form>
+
+{% endblock  %}
+
+

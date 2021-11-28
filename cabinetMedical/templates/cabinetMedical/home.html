@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
       <div class="col">
-        total de client ={{t_orders}}
+        total de order ={{t_orders}}
       </div>
       <div class="col">
           age 20 ={{t_age}}
@@ -20,11 +20,11 @@
 
 <div class="container">
     <div class="row">
-      <div class="col-lg-5">
+      <div class="col-lg-6">
           <div class="card" >
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <h6 class="card-subtitle mb-2 text-muted"> <a class="btn btn-success" href="#">create</a> </h6> 
+                  <h5 class="card-title"> Les clients</h5>
+                  <!-- <h6 class="card-subtitle mb-2 text-muted"> <a class="btn btn-success" href=" {% url 'create' %} ">create</a> </h6>  -->
                   <div class="container"> 
                       <table class="table">
                             <thead>
@@ -33,7 +33,7 @@
                                 <th scope="col">Statu</th>
                                 <th scope="col">Tele</th>
                                 <th scope="col">Age</th>
-                                <th>Action</th>
+                                <th>Clients</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -43,10 +43,7 @@
                                 <td>{{item.email}}</td>
                                 <td>{{item.tele}}</td>
                                 <td>{{item.age}}</td>
-                                <td>
-                                  <a href="#"><i class="fas fa-edit"></i></i></a>
-                                  <a href="#"><i style="color: #ff0000;" class="fas fa-trash-alt"></i></a>
-                                </td>
+                                <td> <a href=" {% url 'client' item.id %} "> <i class="far fa-eye"></i> </a> </td>
                             </tr>
                                 {% endfor  %}
                             </tbody>
@@ -58,8 +55,8 @@
       <div class="col">
           <div class="card" >
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><a class="btn btn-success" href="#">create</a></h6>
+                  <h5 class="card-title">Les Orders</h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><a class="btn btn-success" href="{% url 'create' %}">create</a></h6>
                   <div class="container"> 
                       <table class="table">
                             <thead>
@@ -80,8 +77,8 @@
                                 <td>{{item.status}}</td>
                                 <td>{{item.date_created}}</td>
                                 <td>
-                                  <a href="#"><i class="fas fa-edit"></i></i></a>
-                                  <a href="#"><i style="color: #ff0000;" class="fas fa-trash-alt"></i></a>
+                                  <a href="{% url 'update' item.id %}"><i class="fas fa-edit"></i></i></a>
+                                  <a href="{% url 'delete' item.id %}"><i style="color: #ff0000;" class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                                 {% endfor  %}
